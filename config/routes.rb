@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
+  resources :collaborators
+  resources :lists
+  resources :tasks
+  resources :friend_requests
+  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
