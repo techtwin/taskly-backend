@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :lists
   has_many :tasks, through: :lists
+
   has_many :collaborators
-  has_many :tasks, through: :collaborators
+  has_many :notes, through: :collaborators, class_name: :Task
 end
