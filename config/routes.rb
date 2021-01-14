@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :collaborators
+  resources :collaborators, only: [:index, :show]
   resources :lists
   resources :tasks
   resources :friend_requests
