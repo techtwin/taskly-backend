@@ -7,8 +7,55 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.destroy_all
 List.destroy_all
 Task.destroy_all
 FriendRequest.destroy_all
+User.destroy_all
 
+puts "Creating Users 👨🏽"
+user_arr = [
+  {
+    username: "techtwin",
+    password: "123",
+    name: "Shevaughn Grant",
+    img: "https://i.imgur.com/RqIw2b4.png"
+  }
+  {
+    username: "jaquan1314",
+    password: "123",
+    name: "Javaughn Grant",
+    img: "https://i.imgur.com/RqIw2b4.png"
+  }
+  {
+    username: "juliaz",
+    password: "123",
+    name: "Julia Zolotarev",
+    img: "https://i.imgur.com/0iSQ15t.png"
+  }
+  {
+    username: "steven",
+    password: "123",
+    name: "Steven Wu",
+    img: "https://i.imgur.com/a7TJpiA.png"
+  }
+]
+
+user_arr.each do |userObj|
+  User.create!(userObj)
+end
+
+puts "Creating Lists 📝"
+list_arr = [
+  {
+    name: "Study",
+    color: "#39F014"
+  }
+  {
+    name: "Important",
+    color: "#FF1700"
+  }
+  {
+    name: "Health",
+    color: "#FF75FB"
+  }
+]

@@ -4,7 +4,6 @@ class CreateLists < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :color
       t.references :user, null: false, foreign_key: true
-      t.references :task, null: false, foreign_key: true
 
       t.timestamps
     end

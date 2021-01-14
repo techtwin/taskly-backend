@@ -36,16 +36,13 @@ ActiveRecord::Schema.define(version: 2021_01_13_230524) do
     t.string "name"
     t.string "color"
     t.bigint "user_id", null: false
-    t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["task_id"], name: "index_lists_on_task_id"
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "list_id"
+    t.bigint "list_id", null: false
     t.string "name"
     t.string "description"
     t.string "date"
@@ -53,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_01_13_230524) do
     t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,6 +64,6 @@ ActiveRecord::Schema.define(version: 2021_01_13_230524) do
 
   add_foreign_key "collaborators", "tasks"
   add_foreign_key "collaborators", "users"
-  add_foreign_key "lists", "tasks"
   add_foreign_key "lists", "users"
+  add_foreign_key "tasks", "lists"
 end

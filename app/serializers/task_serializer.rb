@@ -1,5 +1,5 @@
 class TaskSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :description, :date, :time, :completed
   has_many :collaborators
-  has_many :lists
+  belongs_to :list
 end

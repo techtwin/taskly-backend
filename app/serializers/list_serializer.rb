@@ -1,5 +1,4 @@
 class ListSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :color
   belongs_to :user
-  belongs_to :task
 end

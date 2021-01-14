@@ -1,7 +1,6 @@
 class Task < ApplicationRecord
+  belongs_to :list
+
   has_many :collaborators
   has_many :users, through: :collaborators
-
-  has_many :lists
-  has_many people:, through: :lists, class_name: :User
 end
