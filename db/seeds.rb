@@ -103,3 +103,7 @@ task_arr = [
 task_arr.each do |taskObj|
   Task.create!(taskObj)
 end
+
+
+puts "Creating Friend Requests 🔔"
+FriendRequest.create!(requestor_id: 1, receiver_id: 3)

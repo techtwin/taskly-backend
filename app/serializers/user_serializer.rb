@@ -6,11 +6,11 @@ class UserSerializer < ActiveModel::Serializer
   # has_many :friend_requests_as_requestor
 
   def requests_sent
-    self.object.friend_requests_as_requestor.map {|user| User.find(user.requestor_id)}
+    self.object.friend_requests_as_requestor.map {|user| User.find(user.receiver_id)}
   end
 
   def requests_received
-    self.object.friend_requests_as_receiver.map {|user| User.find(user.receiver_id)}
+    self.object.friend_requests_as_receiver.map {|user| User.find(user.requestor_id)}
   end
 
 end
