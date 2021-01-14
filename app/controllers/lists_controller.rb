@@ -35,6 +35,6 @@ class ListsController < ApplicationController
   private
 
   def list_params 
-    params.permit(:name, :color)
+    params.permit(:user_id, :task_id, :name, :color)
   end
 end
