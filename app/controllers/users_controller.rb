@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     render json: users
   end
 
+  def show
+    user = user.find(params[:id])
+    render json: user
+  end
+
   def new 
     user = User.new
     render json: user
@@ -12,7 +17,11 @@ class UsersController < ApplicationController
 
   def create
     user = User.create!(user_params)
-    render json: user
+    if user.valid?
+      render json: user
+    else
+      render json: { error: "user was not created, please try again!"}
+    end
   end
 
   def update
