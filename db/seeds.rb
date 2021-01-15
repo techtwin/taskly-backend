@@ -106,4 +106,4 @@ end
 
 
 puts "Creating Friend Requests 🔔"
-FriendRequest.create!(requestor_id: 1, receiver_id: 3)
+FriendRequest.create!(requestor_id: 1, receiver_id: 4)
