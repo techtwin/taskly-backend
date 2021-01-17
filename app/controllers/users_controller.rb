@@ -36,6 +36,15 @@ class UsersController < ApplicationController
     render json: {}
   end
 
+  def login 
+    user = User.find_by(username: params[:username])
+    if (user && user.authenticate(params[:password]))
+      render json: user
+    else
+      render json: {errors: "invalid username"}
+    end
+  end
+
   private
 
   def user_params 

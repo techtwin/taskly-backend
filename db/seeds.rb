@@ -106,4 +106,21 @@ end
 
 
 puts "Creating Friend Requests 🔔"
-FriendRequest.create!(requestor_id: 1, receiver_id: 4)
+friend_request_arr = [
+  {
+    requestor_id: 1,
+    receiver_id: 4
+  },
+  {
+    requestor_id: 1,
+    receiver_id: 3
+  },
+  {
+    requestor_id: 1,
+    receiver_id: 2
+  },
+]
+
+friend_request_arr.each do |friendObj|
+  FriendRequest.create!(friendObj)
+end

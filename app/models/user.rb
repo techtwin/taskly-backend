@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
   has_many :collaborators
   has_many :notes, through: :collaborators, class_name: :Task
+
+  has_secure_password
 end
