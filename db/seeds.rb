@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'date'
 
 List.destroy_all
 Task.destroy_all
@@ -81,21 +81,24 @@ task_arr = [
     list_id: List.first.id,
     name: "Data Structures & Algos",
     description: "Study these so I can be good at backend sht and enjoy the smart life",
-    date: "01-15-2021",
+    date: Date.today(),
+    # date: "01-15-2021",
     time: "10:30AM"
   },
   {
     list_id: List.first.id,
     name: "SCSS",
     description: "Study some SCSS",
-    date: "04-25-2021",
+    date: Date.tomorrow(),
+    # date: "04-25-2021",
     time: "11:10PM"
   },
   {
     list_id: List.first.id,
     name: "Typescript",
     description: "Do some work in Typescript",
-    date: "02-09-2020",
+    date: Date.yesterday(),
+    # date: "02-09-2020",
     time: "8:00AM"
   },
 ]
