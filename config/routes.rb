@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # post '/users/login', to: 'users#login'
   post '/register', to: 'auth#register'
   post '/login', to: 'auth#login'
-  get '/profile', to: 'users#profile'
+  get '/profile', to: 'users#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
