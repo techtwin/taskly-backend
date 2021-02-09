@@ -1,6 +1,8 @@
 class AuthController < ApplicationController
 
   def register
+    # byebug
+    # img = params[:img][0]
     user = User.create(register_params)
     if user.valid?
       token = encode_token({ user_id: user.id })
@@ -24,7 +26,7 @@ class AuthController < ApplicationController
   private
 
   def register_params
-    params.require(:auth).permit(:username, :name, :password)
+    params.require(:auth).permit(:username, :name, :password, :img)
   end
 
   def encode_token(payload)
