@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :notes, through: :collaborators, class_name: :Task
 
   has_secure_password
+  validates :username, uniqueness: true
 end
