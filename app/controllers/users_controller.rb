@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   def create
     user = User.create!(user_params)
     if user.valid?
+      image = Cloudinary::Uploader.upload(params[:img])
+      user.update(img: image['url'])
       render json: user
     else 
       render json: { error: "user was not created, please try again!"}

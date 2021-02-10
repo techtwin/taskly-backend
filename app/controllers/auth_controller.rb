@@ -5,6 +5,8 @@ class AuthController < ApplicationController
     # img = params[:img][0]
     user = User.create(register_params)
     if user.valid?
+      image = Cloudinary::Uploader.upload(params[:img])
+      user.update(img: image['url'])
       token = encode_token({ user_id: user.id })
       render json: { user: UserSerializer.new(user), token: token }, status: :created
     else
@@ -26,7 +28,7 @@ class AuthController < ApplicationController
   private
 
   def register_params
-    params.require(:auth).permit(:username, :name, :password, :img)
+    params.permit(:username, :name, :password, :img)
   end
 
   def encode_token(payload)
