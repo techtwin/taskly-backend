@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize
+  before_action :authorize, only: [:profile]
 
   def index 
     users = User.all
@@ -7,6 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    user = User.find_by(id: params[:id])
+    render json: user
+  end
+
+  def profile 
     render json: @user
   end
 
@@ -27,8 +32,11 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user.update(user_params)
-    render json: @user
+    user = User.find(params[:id])
+    user.update(user_params)
+    render json: user
+    # @user.update(user_params)
+    # render json: @user
   end
 
   def destroy
@@ -40,6 +48,6 @@ class UsersController < ApplicationController
   private
 
   def user_params 
-    params.permit(:username, :password, :name, :img)
+    params.require(:user).permit(:username, :password, :name, :img)
   end
 end
