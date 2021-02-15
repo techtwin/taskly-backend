@@ -1,13 +1,8 @@
 class FriendRequestsController < ApplicationController
 
-  # def index
-  #   friendrequests = FriendRequest.all
-  #   render json: friendrequests
-  # end
-
   def create
     friendrequest = FriendRequest.create!(friendrequest_params)
-    render json: { friendrequest: FriendRequestSerializer.new(friendrequests)}, status: :accepted
+    render json: { friendrequest: FriendRequestSerializer.new(friendrequest)}, status: :accepted
   end
 
   def destroy 
@@ -21,6 +16,6 @@ class FriendRequestsController < ApplicationController
   private
 
   def friendrequest_params 
-    params.permit(:requestor_id, :receiver_id)
+    params.require(:friend_request).permit(:requestor_id, :receiver_id)
   end
 end

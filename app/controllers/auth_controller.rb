@@ -1,8 +1,6 @@
 class AuthController < ApplicationController
 
   def register
-    # byebug
-    # img = params[:img][0]
     user = User.create(register_params)
     if user.valid?
       image = Cloudinary::Uploader.upload(params[:img])
@@ -15,7 +13,6 @@ class AuthController < ApplicationController
   end
 
   def login 
-    # byebug
     user = User.find_by(username: params[:username])
     if (user && user.authenticate(params[:password]))
       token = encode_token({ user_id: user.id })

@@ -35,8 +35,6 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.update(user_params)
     render json: user
-    # @user.update(user_params)
-    # render json: @user
   end
 
   def destroy
