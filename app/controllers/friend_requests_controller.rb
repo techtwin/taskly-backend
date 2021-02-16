@@ -16,6 +16,6 @@ class FriendRequestsController < ApplicationController
   private
 
   def friendrequest_params 
-    params.require(:friend_request).permit(:requestor_id, :receiver_id)
+    params.require(:friend_request).permit(:requestor_id, :receiver_id, :status)
   end
 end
