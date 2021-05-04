@@ -1,24 +1,12 @@
-# README
+# taskly.
+taskly is an app made for task management. It also has features for team collaboration by enabling a user to add a friend/team member to one of their task(s) and completing them together.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Tech Stack
+The back end uses Ruby on Rails as an API. The front end uses React and Redux for managing state and you can visit it [here](https://github.com/techtwins/taskly)
 
-Things you may want to cover:
+## Known Bugs 
+Deleting a friend refreshes the webpage
 
-* Ruby version
+Updating a task sometimes doesn't change the name of said task
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+After logging out, if user logs in to another account immediately they will have to hard refresh the page
